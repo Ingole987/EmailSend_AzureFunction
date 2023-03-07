@@ -57,7 +57,6 @@ namespace EmailSend_FunctionApp
             {
                 using (var client = new HttpClient())
                 {
-                    //var url = "https://prod-02.eastus.logic.azure.com:443/workflows/2e6336d5b923410e87864c13a50c016d/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=JXiBWvS48SJO2pRWm1tYjC20pWXygpTmJCuGLAjj4t4";
                     var url = requestModel.LogicApp_Url;
                     var content = new StringContent(json, Encoding.UTF8, "application/json");
                     var response = client.PostAsync(url, content).Result;
@@ -81,7 +80,6 @@ namespace EmailSend_FunctionApp
             try
             {
                 log.LogInformation("Data Ingetion started");
-                //string sqlConnection = "Data Source=icapdissqlserver.database.windows.net;database=icapdisql_dev;uid=icapdis;password=Provana@123;";
                 string sqlConnection = requestModel.DBConnection;
 
                 using (SqlConnection con = new SqlConnection(sqlConnection))
@@ -227,7 +225,6 @@ namespace EmailSend_FunctionApp
             try
             {
                 log.LogInformation("DataIngetion2 Started");
-                //string sqlConnection = "Data Source=icapdissqlserver.database.windows.net;database=icapdisql_dev;uid=icapdis;password=Provana@123;";
                 string sqlConnection = requestModel.DBConnection;
 
                 using (SqlConnection con = new SqlConnection(sqlConnection))
